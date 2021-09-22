@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email validation</title>
+</head>
+<body>
+    
+    <div style="height: auto; width: 400px;background-color: rgb(235, 166, 166);margin: auto; ">
+        <h1 style="text-align: center; width: 400px;background-color: rgb(140, 206, 206)">Email validation Check</h1>
+        <table>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" id="stEmail" placeholder="Type a valid email"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><button id="result" onclick="showResult()" style="background-color: cyan;">Submit</button></td>
+            </tr>
+
+        </table>
+    </div>
+    <div style="width: 400px; margin: auto;">
+    <span id="msg"></span>
+</div>
+<script>
+    var stEmail=document.getElementById("stEmail");
+    var msg=document.getElementById("msg");
+    var emailRegx=/^([a-zA-Z0-9]+)(_?-?.?[a-zA-Z0-9]+)@([a-zA-Z]+)\.([a-z]){2,3}$/;
+    function showResult() {
+            if (!emailRegx.test(stEmail.value)) {
+                msg.innerHTML = "Please enter the valid email";
+                stEmail.style.border = " 2px solid red";
+                msg.style.color = "red";
+                msg.style.fontSize = "20px"
+                msg.style.fontWeight = "bold"
+            } else {
+                msg.innerHTML = "Email validation successfully complete";
+                stEmail.style.border = " 2px solid green";
+                msg.style.color = "green";
+                msg.style.fontSize = "20px"
+                msg.style.fontWeight = "bold"
+            }
+           
+        }
+</script>
+    
+</body>
+</html>
